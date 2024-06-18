@@ -18,6 +18,7 @@ of Claude Garamont's classic French Renaissance/15th cent. typeface.
 If EB Garamond doesn't suit you,
 1. are you nuts, and
 2. I recommend you check out Coelacanth, a Centaur-derived typeface.
+
 Other good options are:
 - Alegreya
 - Palatino
