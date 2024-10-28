@@ -108,6 +108,7 @@
 
 \maxsecnumdepth{subsubsection}              % Everything down to subsubsections will be numbered.
 \setsecnumdepth{subsubsection}
+%\renewcommand*{\thesection}{\arabic{section}} % Do not display chapter numbers. Useful in a paper.
 
 %-----% REFERENCES & NAVIGATION %----------------%
 \setcounter{tocdepth}{2}                    % What division level appears in the ToC. 2 means subsection.
@@ -127,6 +128,19 @@
 \theoremstyle{remark}
 \newtheorem{rem}{Remark}
 \newtheorem{nte}{Note}
+
+%-----% DOCUMENT MACROS %------------------------%
+
+%%% MarginNote places a correctly-formatted note in the margin.
+%%% Just pass the text.
+\newcommand{\MarginNote}[1]{
+  \marginpar{\footnotesize\itshape\raggedright #1}
+}
+
+%%% Places a variable declaration in an inline math environment.
+%%% Use \quad or \> to space them.
+\newcommand{\MarginVariable}[1]{{\footnotesize\marginpar{\( #1 \)}}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-----% THE DOCUMENT %---------------------------%
@@ -216,10 +230,10 @@
  \end{enumerate}
 
  \subsection{And here is a subsection...}
- \lipsum[9]\marginpar{\footnotesize\textit{Here is a margin note which can float and drop down.}}
+ \lipsum[9]\MarginNote{Here is a margin note which can float and drop down.}
 
  \subsubsection{And here is a sub-sub-section...}
- \lipsum[10]\marginpar{\(x\quad z\)}            % Introduce your variables in the margins!
+ \lipsum[10]\MarginVariable{x\>z}                % Introduce your variables in the margins!
  \[  z \in \mathbb{Z} \quad\text{\textit{\&}}\quad x \in \mathbb{R} \]
  \[ \int_a^b f'(t)\,dt = f(b) - f(a) \]
  \begin{thm}
@@ -251,7 +265,7 @@
 %-----% CHAPTER TWO %----------------------------%
  \chapter{The Chapter after the Beginning...}
  \epigraph{I really like these epigraph things that come before the chapters.} {\textsw{Reflections \& Translations}\\\textsc{Ethan Barry}}
- \lipsum[11]
+ \lipsum[11]\MarginNote{\lipsum[11]}
  \begin{rem}
   This is our first remark. Isn't it remarkable?
  \end{rem}
